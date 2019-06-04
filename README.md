@@ -1,1 +1,1 @@
-# OpenSkyData
+# OpenSky
