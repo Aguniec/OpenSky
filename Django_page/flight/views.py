@@ -1,15 +1,34 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+import datetime
 
-# Handle the  homepage
+
+posts = [
+    {
+        "author": "Brad Pitt",
+        "title": "Post_1",
+        "content": "First post content",
+        "date_posted": datetime.datetime.now
+
+    },
+    {
+        "author": "Forest Gump",
+        "title": "Post_2",
+        "content": "Second post content",
+        "date_posted": datetime.datetime.now
+
+    }
+]
 
 
 def home(request):
-    return HttpResponse("<h1> Page home </h1>")
+    context = {
+        "posts": posts
+    }
+    return render(request, "flight/home.html", context)
 
 
 def about(request):
-    return HttpResponse("<h1> Blog about</h1>")
+    return render(request, "flight/about.html", {"title": "- About"})
 
 
 # Create your views here.
